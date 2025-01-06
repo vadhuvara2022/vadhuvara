@@ -17,16 +17,16 @@ const Carousel: React.FC<CarouselProps> = ({ images }) => {
   useEffect(() => {
     const interval = setInterval(() => {
       scrollCarousel(1);
-    }, 5000); // Change slide every 5 seconds
+    }, 5000); 
 
-    return () => clearInterval(interval); // Cleanup interval on component unmount
+    return () => clearInterval(interval); 
   }, [scrollCarousel]);
 
   return (
     <div className="relative w-full mx-auto">
       <div className="overflow-hidden relative  w-full">
         <div
-          className="flex transition-transform duration-1000 ease-in-out transform" // Slower transition duration
+          className="flex transition-transform duration-1000 ease-in-out transform"
           style={{ transform: `translateX(-${currentSlide * 100}%)` }}
         >
           {images.map((image, index) => (

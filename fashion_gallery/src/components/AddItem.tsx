@@ -50,7 +50,7 @@ export default function AddItem() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    // Ensure sizes is an array
+   
     const sizesArray = formData.sizes.split(',').map((size) => size.trim());
     const updatedFormData = { ...formData, sizes: sizesArray };
 
@@ -169,15 +169,7 @@ export default function AddItem() {
                   className="w-full px-3 py-2 border rounded mb-2"
                   required
                 />
-                {/* <input
-                  type="text"
-                  name="alt"
-                  placeholder="Image Alt Text"
-                  value={image.alt}
-                  onChange={(e) => handleTotalImagesChange(index, e)}
-                  className="w-full px-3 py-2 border rounded"
-                  required
-                /> */}
+                
                 <button
                   type="button"
                   onClick={() => removeImageField(index)}

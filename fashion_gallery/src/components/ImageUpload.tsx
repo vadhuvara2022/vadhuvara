@@ -36,7 +36,13 @@ const ImageUpload: React.FC = () => {
       const data = await response.json();
       setImageUrl(data.imageUrl);
     } catch (error) {
-      setError('Error uploading image');
+      if (error instanceof Error) {
+        setError(`Error uploading image: ${error.message}`);
+      } else {
+        setError('Unknown error occurred');
+      }
+      
+      
     } finally {
       setUploading(false);
     }

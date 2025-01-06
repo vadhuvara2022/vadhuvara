@@ -53,7 +53,7 @@ const ItemDetailPage: React.FC = () => {
       <div >
         <div className="mb-6  ">
           {item.totalImages && item.totalImages.length > 0 ? (
-            <RotatingCarousel images={item.totalImages} item={item} />
+            <RotatingCarousel images={item.totalImages}  />
           ) : (
             <div>No images available</div>
           )}

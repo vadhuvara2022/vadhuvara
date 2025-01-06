@@ -4,8 +4,8 @@ import ContactRequest from '@/lib/models/ContactRequest';
 
 export const POST = async (request: Request) => {
   try {
-    const body = await request.json(); // Parse the request body
-    await connect(); // Connect to MongoDB
+    const body = await request.json(); 
+    await connect(); 
 
     const { name,mobileNumber, address, itemId } = body;
 
@@ -19,8 +19,11 @@ export const POST = async (request: Request) => {
     await newContactRequest.save();
 
     return new NextResponse(JSON.stringify({ message: 'Request saved successfully!' }), { status: 201 });
-  } catch (error: any) {
-    console.error('Error saving request:', error);
-    return new NextResponse(JSON.stringify({ error: 'Failed to save request.' }), { status: 500 });
+  } catch (error: unknown) {
+    console.error("Error in fetching users:", error); 
+    if (error instanceof Error) {
+      return NextResponse.json({ message: "Error in fetching users: " + error.message }, { status: 500 });
+    }
+    return NextResponse.json({ message: "Unknown error" }, { status: 500 });
   }
 };

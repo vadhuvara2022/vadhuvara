@@ -1,4 +1,4 @@
-import { S3Client,PutObjectCommand} from '@aws-sdk/client-s3';
+import { S3Client, PutObjectCommandInput, ObjectCannedACL} from '@aws-sdk/client-s3';
 import { Upload } from '@aws-sdk/lib-storage';
 
 interface MulterFile {
@@ -16,12 +16,19 @@ const s3Client = new S3Client({
 });
 
 export const uploadImageToS3 = async (file: MulterFile) => {
-  const params = {
+  // const params = {
+  //   Bucket: process.env.S3_BUCKET_NAME!,
+  //   Key: `${Date.now()}-${file.originalname}`,
+  //   Body: file.buffer,
+  //   ContentType: file.mimetype,
+  //   ACL: 'public-read',
+  // };
+  const params: PutObjectCommandInput = {
     Bucket: process.env.S3_BUCKET_NAME!,
     Key: `${Date.now()}-${file.originalname}`,
     Body: file.buffer,
     ContentType: file.mimetype,
-    ACL: 'public-read',
+    ACL: 'public-read' as ObjectCannedACL,
   };
 
   try {
@@ -31,7 +38,7 @@ export const uploadImageToS3 = async (file: MulterFile) => {
     });
 
     const data = await upload.done();
-    return data.Location; // Return the URL of the uploaded image
+    return data.Location; 
   } catch (error) {
     console.error('Error uploading image to S3:', error);
     throw new Error('Error uploading image to S3');

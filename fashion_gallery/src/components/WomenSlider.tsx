@@ -21,7 +21,7 @@ const WomenSlider: React.FC = () => {
   useEffect(() => {
     const fetchItems = async () => {
       try {
-        const response = await fetch('/api/users?gender=women'); // Ensure this endpoint is correct
+        const response = await fetch('/api/users?gender=women'); 
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }

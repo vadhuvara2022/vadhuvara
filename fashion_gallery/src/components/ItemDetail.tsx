@@ -1,46 +1,4 @@
-// import React from 'react';
-// import Link from 'next/link'
-// interface ItemDetailProps {
-//   item: {
-//     _id: string;
-//     name: string;
-//     category: string;
-//     cost: number;
-//     description: string;
-//     sizes: string[];
-//   };
-// }
 
-// const ItemDetail: React.FC<ItemDetailProps> = ({ item }) => {
-//   return (
-//     <div className='p-4 md:ml-0 mx-auto max-w-lg md:max-w-none bg-white rounded-lg shadow-lg'> 
-//       <h2 className="text-2xl font-bold text-gray-900">{item.name}</h2>
-//       <p className="text-sm text-gray-500 mt-2">{item.category}</p>
-//       <p className="text-gray-600 mt-4">{item.description}</p>
-//       <div className="mt-4">
-//         {item.cost !== undefined ? (
-//           <span className="text-2xl font-extrabold text-gray-900">₹{item.cost.toFixed(2)}</span>
-//         ) : (
-//           <span className="text-2xl font-extrabold text-gray-900">Cost not available</span>
-//         )}
-//       </div>
-//       <div className="mt-4">
-//         {item.sizes.map((size) => (
-//           <span key={size} className="inline-block ml-1 mt-1 px-2 py-1 bg-gray-200 text-gray-700 text-xs font-semibold rounded">
-//             {size}
-//           </span>
-//         ))}
-//       </div>
-//       <Link href={`/contactUs?id=${item._id}`}>
-//       <button className="mt-4 px-4 py-2 bg-blue-500 text-white text-sm font-semibold rounded hover:bg-blue-600 focus:outline-none">
-//         Contact Us
-//       </button>
-//       </Link>
-//     </div>
-//   );
-// };
-
-// export default ItemDetail;
 
 import React from 'react';
 import Link from 'next/link';
@@ -95,11 +53,7 @@ const ItemDetail: React.FC<ItemDetailProps> = ({ item }) => {
             </div>
             <div className="mt-6">
               <div className="rounded-md shadow">
-                {/* <Link href={`/contactUs?id=${item._id}`}>
-                  <a className="flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-500 hover:bg-indigo-600">
-                    Contact Us
-                  </a>
-                </Link> */}
+                
                 <Link href={`/contactUs?id=${item._id}`}>
       <button className="flex items-center justify-center ml-9 px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-500 hover:bg-indigo-600">
         Contact Us

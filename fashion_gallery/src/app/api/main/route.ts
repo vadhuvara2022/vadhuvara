@@ -1,11 +1,11 @@
 
 import { NextResponse } from "next/server";
-import connect from "@/lib/mongodb"; // Ensure this path is correct
-import MyModel from "@/lib/models/MyModel"; // Ensure this path is correct
+import connect from "@/lib/mongodb"; 
+import MyModel from "@/lib/models/MyModel"; 
 
 export const GET = async (request: Request) => {
   try {
-    await connect(); // Connect to MongoDB
+    await connect(); 
 
     const url = new URL(request.url);
     const category = url.searchParams.get("category");
@@ -14,20 +14,21 @@ export const GET = async (request: Request) => {
 
    
 
-    const query: any = {};
+    const query: Record<string, string | undefined> = {};
     if (category) query.category = category;
     if (name) query.name = name;
     if (id) query._id = id;
 
-    const items = await MyModel.find(query); // Fetch items based on query
+    const items = await MyModel.find(query); 
 
     
 
     return new NextResponse(JSON.stringify(items), { status: 200 });
-  } catch (error: any) {
-    console.error("Error in fetching items:", error); // Log the error
-    return new NextResponse("Error in fetching items: " + error.message, {
-      status: 500,
-    });
+  } catch (error: unknown) {
+    console.error("Error in fetching users:", error); 
+    if (error instanceof Error) {
+      return NextResponse.json({ message: "Error in fetching users: " + error.message }, { status: 500 });
+    }
+    return NextResponse.json({ message: "Unknown error" }, { status: 500 });
   }
 };

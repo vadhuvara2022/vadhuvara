@@ -23,7 +23,7 @@ const SignInPage: React.FC = () => {
     const data = await response.json();
 
     if (response.ok) {
-      // Redirect to admin app router
+      
       router.push('/admin');
     } else {
       setError(data.message || 'Something went wrong');

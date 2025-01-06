@@ -23,7 +23,7 @@ const KidsSlider: React.FC = () => {
   useEffect(() => {
     const fetchItems = async () => {
       try {
-        const response = await fetch('/api/users?gender=kids'); // Ensure this endpoint is correct
+        const response = await fetch('/api/users?gender=kids'); 
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }

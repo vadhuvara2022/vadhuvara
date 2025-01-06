@@ -11,17 +11,20 @@ export const GET = async (req: NextRequest) => {
     const email = searchParams.get('email');
     const password = searchParams.get('password');
 
-    const query: any = {};
+    const query: Record<string, string | undefined> = {};
     
     if (email) query.email = email;
     if (password) query.password = password;
 
-    const users = await MyModel1.find(query); // Fetch users based on query
+    const users = await MyModel1.find(query);
 
     return NextResponse.json(users, { status: 200 });
-  } catch (error: any) {
-    console.error("Error in fetching users:", error); // Log the error
-    return NextResponse.json({ message: "Error in fetching users: " + error.message }, { status: 500 });
+  } catch (error: unknown) {
+    console.error("Error in fetching users:", error);
+    if (error instanceof Error) {
+      return NextResponse.json({ message: "Error in fetching users: " + error.message }, { status: 500 });
+    }
+    return NextResponse.json({ message: "Unknown error" }, { status: 500 });
   }
 };
 
@@ -41,9 +44,12 @@ export const POST = async (req: NextRequest) => {
     await newUser.save();
 
     return NextResponse.json(newUser, { status: 201 });
-  } catch (error: any) {
-    console.error("Error in creating user:", error); // Log the error
-    return NextResponse.json({ message: "Error in creating user: " + error.message }, { status: 500 });
+  } catch (error: unknown) {
+    console.error("Error in fetching users:", error); 
+    if (error instanceof Error) {
+      return NextResponse.json({ message: "Error in fetching users: " + error.message }, { status: 500 });
+    }
+    return NextResponse.json({ message: "Unknown error" }, { status: 500 });
   }
 };
 

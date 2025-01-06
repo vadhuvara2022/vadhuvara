@@ -21,9 +21,13 @@ const connect = async () => {
       bufferCommands: true,
     });
     console.log("Connected");
-  } catch (err: Error) {
+  } catch (err) {
     console.log("Error: ", err);
-    throw new Error("Error: ", err.message);
+    if (err instanceof Error) {
+      throw new Error("Error: " + err.message);
+    } else {
+      throw new Error("Unknown error occurred during MongoDB connection");
+    }
   }
 };
 

@@ -23,7 +23,7 @@ const SliderCards: React.FC = () => {
   useEffect(() => {
     const fetchItems = async () => {
       try {
-        const response = await fetch('/api/users?gender=men'); // Ensure this endpoint is correct
+        const response = await fetch('/api/users?gender=men'); 
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }

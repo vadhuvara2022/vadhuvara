@@ -22,7 +22,10 @@ export async function GET(req: NextRequest) {
 
     return NextResponse.json({ url });
   } catch (error) {
-    console.error('Error generating presigned URL:', error);
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    console.error("Error in fetching users:", error); 
+    if (error instanceof Error) {
+      return NextResponse.json({ message: "Error in fetching users: " + error.message }, { status: 500 });
+    }
+    return NextResponse.json({ message: "Unknown error" }, { status: 500 });
   }
 }
