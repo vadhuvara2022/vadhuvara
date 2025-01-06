@@ -1,13 +1,13 @@
-import { NextResponse } from 'next/server';
+import {NextRequest, NextResponse } from 'next/server';
 import connect from '@/lib/mongodb';
 import ContactRequest from '@/lib/models/ContactRequest';
 
-export const POST = async (request: Request) => {
+export const POST = async (request: NextRequest) => {
   try {
     const body = await request.json(); 
     await connect(); 
 
-    const { name,mobileNumber, address, itemId } = body;
+    const { name,mobileNumber, address, itemId } = body as { name: string; mobileNumber: string; address: string; itemId: string };
 
     const newContactRequest = new ContactRequest({
       name,
@@ -27,3 +27,12 @@ export const POST = async (request: Request) => {
     return NextResponse.json({ message: "Unknown error" }, { status: 500 });
   }
 };
+const handler = async (request: NextRequest) => {
+  if (request.method === 'POST') {
+    return POST(request);
+  } else {
+    return new NextResponse(JSON.stringify({ message: 'Method not allowed' }), { status: 405 });
+  }
+};
+
+export default handler;

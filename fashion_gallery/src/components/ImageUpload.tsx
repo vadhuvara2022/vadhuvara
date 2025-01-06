@@ -35,15 +35,13 @@ const ImageUpload: React.FC = () => {
 
       const data = await response.json();
       setImageUrl(data.imageUrl);
-    } catch (error) {
+    } catch (error:unknown) {
       if (error instanceof Error) {
         setError(`Error uploading image: ${error.message}`);
       } else {
         setError('Unknown error occurred');
       }
-      
-      
-    } finally {
+    }  finally {
       setUploading(false);
     }
   };

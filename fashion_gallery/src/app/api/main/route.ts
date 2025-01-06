@@ -1,9 +1,9 @@
 
-import { NextResponse } from "next/server";
+import { NextRequest,NextResponse } from "next/server";
 import connect from "@/lib/mongodb"; 
 import MyModel from "@/lib/models/MyModel"; 
 
-export const GET = async (request: Request) => {
+export const GET = async (request: NextRequest) => {
   try {
     await connect(); 
 
@@ -32,3 +32,14 @@ export const GET = async (request: Request) => {
     return NextResponse.json({ message: "Unknown error" }, { status: 500 });
   }
 };
+
+
+const handler = async (request:NextRequest) => {
+  if (request.method === 'GET') {
+    return GET(request);
+  } else {
+    return new NextResponse(JSON.stringify({ message: 'Method not allowed' }), { status: 405 });
+  }
+};
+
+export default handler;

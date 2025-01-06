@@ -33,7 +33,7 @@ export const POST = async (req: NextRequest) => {
 
   try {
     const body = await req.json();
-    const { email, password } = body;
+    const { email, password } = body as {  email: string; password: string };
 
     if (!email || !password) {
       console.error("Missing required fields");
