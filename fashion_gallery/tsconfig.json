@@ -13,16 +13,11 @@
     "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "node",
-    // "typeRoots": ["./node_modules/@types"],
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    // "plugins": [
-    //   {
-    //     "name": "next" ".next/types/**/*.ts"
-    //   }
-    // ],
+    
     "paths": {
       "@/*": [
         "./src/*"

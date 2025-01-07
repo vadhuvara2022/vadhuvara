@@ -16,13 +16,6 @@ const s3Client = new S3Client({
 });
 
 export const uploadImageToS3 = async (file: MulterFile) => {
-  // const params = {
-  //   Bucket: process.env.S3_BUCKET_NAME!,
-  //   Key: `${Date.now()}-${file.originalname}`,
-  //   Body: file.buffer,
-  //   ContentType: file.mimetype,
-  //   ACL: 'public-read',
-  // };
   const params: PutObjectCommandInput = {
     Bucket: process.env.S3_BUCKET_NAME!,
     Key: `${Date.now()}-${file.originalname}`,

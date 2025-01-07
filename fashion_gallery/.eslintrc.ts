@@ -8,7 +8,7 @@ module.exports = {
       'plugin:@next/next/recommended',
     ],
     rules: {
-      '@typescript-eslint/no-explicit-any': 'off', // Disable this rule
+      '@typescript-eslint/no-explicit-any': 'off', 
     },
     settings: {
       react: {

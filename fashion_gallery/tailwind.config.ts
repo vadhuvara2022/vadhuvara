@@ -11,7 +11,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        paleGold: '#F3D675', // Adding gold color
+        paleGold: '#F3D675', 
       },
       keyframes: {
         carouselLeft: {
