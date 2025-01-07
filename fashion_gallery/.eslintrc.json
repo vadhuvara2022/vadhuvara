@@ -1,11 +1,20 @@
+// {
+//     "extends": ["next/core-web-vitals"],
+//     "rules": {
+//       "react/no-unescaped-entities": "off",
+//       "@next/next/no-page-custom-font": "off",
+//       "no-unused-vars": "off",
+//       "@typescript-eslint/no-unused-vars": "off",
+//       "@typescript-eslint/no-explicit-any": "off"  // Add this line to disable the 'no-explicit-any' rule
+//     }
+//   }
 {
-    "extends": ["next/core-web-vitals"],
-    "rules": {
-      "react/no-unescaped-entities": "off",
-      "@next/next/no-page-custom-font": "off",
-      "no-unused-vars": "off",
-      "@typescript-eslint/no-unused-vars": "off",
-      "@typescript-eslint/no-explicit-any": "off"  // Add this line to disable the 'no-explicit-any' rule
-    }
+  "extends": ["next/core-web-vitals"],
+  "rules": {
+    "react/no-unescaped-entities": "error", // Enable this rule
+    "@next/next/no-page-custom-font": "error", // Enable this rule
+    "no-unused-vars": "error", // Enable this rule
+    "@typescript-eslint/no-unused-vars": "error", // Enable this rule
+    "@typescript-eslint/no-explicit-any": "error" // Enable this rule
   }
-  
+}

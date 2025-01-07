@@ -73,13 +73,3 @@ export const POST = async (request: NextRequest) => {
   }
 };
 
-const handler = async (request: NextRequest) => {
-  if (request.method === 'GET') {
-    return GET(request);
-  } else if (request.method === 'POST') {
-    return POST(request);
-  } else {
-    return new NextResponse(JSON.stringify({ message: 'Method not allowed' }), { status: 405 });
-  }
-};
-export default handler;
