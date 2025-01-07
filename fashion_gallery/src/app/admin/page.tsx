@@ -1,13 +1,23 @@
 "use client";
 import AddItem from "@/components/AddItem";
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
+import { useRouter } from 'next/navigation';
+import { useAuth } from '@/context/AuthContext';
 
 export default function Admin() {
+  const { isAuthenticated } = useAuth();
+  const router = useRouter();
   const [file, setFile] = useState<File | null>(null);
   const [uploading, setUploading] = useState<boolean>(false);
   const [message, setMessage] = useState<string>("");
   const [show, setShow] = useState<string>("hidden");
   const [imageUrl, setImageUrl] = useState<string>("");
+
+  useEffect(() => {
+    if (!isAuthenticated) {
+      router.push('/sign');
+    }
+  }, [isAuthenticated, router]);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -66,6 +76,9 @@ export default function Admin() {
       setShow("block");
     });
   };
+  if (!isAuthenticated) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <main>

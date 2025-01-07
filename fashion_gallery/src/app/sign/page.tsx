@@ -1,12 +1,16 @@
 "use client"
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { useAuth } from '@/context/AuthContext';
 
 const SignInPage: React.FC = () => {
+  const { login } = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const router = useRouter();
+
+  
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -23,7 +27,7 @@ const SignInPage: React.FC = () => {
     const data = await response.json();
 
     if (response.ok) {
-      
+      login()
       router.push('/admin');
     } else {
       setError(data.message || 'Something went wrong');
@@ -80,13 +84,7 @@ const SignInPage: React.FC = () => {
                 Sign in
               </button>
             </div>
-            <p className="text-center text-sm text-gray-500">
-              Don&#x27;t have an account yet?
-              <a href="/signup" className="font-semibold text-gray-600 hover:underline focus:text-gray-800 focus:outline-none">
-                Sign up
-              </a>
-              .
-            </p>
+            
           </form>
         </div>
       </div>
