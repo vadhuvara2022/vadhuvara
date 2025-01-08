@@ -4,8 +4,8 @@ const Header: React.FC = () => {
   return (
     <header className="bg-gray-500 text-white py-4">
       <div className="container mx-auto flex justify-between items-center px-4 md:px-6">
-        <div className="text-lg font-bold">Fashion Gallery</div>
-        <nav>
+        <div className="text-lg font-bold ">Vadhuvara Wedding mall</div>
+        <nav >
           <ul className="flex space-x-4">
             <li>
               <a href="#mens" className="hover:text-gray-400">Mens</a>
@@ -22,5 +22,4 @@ const Header: React.FC = () => {
     </header>
   );
 };
-
 export default Header;

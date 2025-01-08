@@ -14,14 +14,14 @@ interface Item {
   image: string;
 }
 
-const WomenSlider: React.FC = () => {
+const OtherSlider: React.FC = () => {
   const [items, setItems] = useState<Item[]>([]);
   const sliderRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const fetchItems = async () => {
       try {
-        const response = await fetch('/api/users?gender=women'); 
+        const response = await fetch('/api/users?gender=others'); 
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -136,4 +136,4 @@ const WomenSlider: React.FC = () => {
   );
 };
 
-export default WomenSlider;
+export default OtherSlider;

@@ -3,6 +3,8 @@ import AddItem from "@/components/AddItem";
 import React, { useState,useEffect } from "react";
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/context/AuthContext';
+import MessagesPage from "@/components/MessagePage";
+import SearchComponent from "@/components/SearchComponent";
 
 export default function Admin() {
   const { isAuthenticated } = useAuth();
@@ -133,6 +135,10 @@ export default function Admin() {
         </div>
       </div>
       <AddItem />
+      <div className="">
+        <MessagesPage/>
+        <SearchComponent/>
+      </div>
     </main>
   );
 }

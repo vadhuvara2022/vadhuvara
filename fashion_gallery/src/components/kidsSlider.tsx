@@ -79,7 +79,7 @@ const KidsSlider: React.FC = () => {
           {items.map((card) => (
             <div key={card._id} className="flex-none w-64 snap-center">
               <div className="bg-white border border-gray-200 rounded-lg overflow-hidden mb-4">
-                <Link href={`/related/${card.category}/${card.name}`}>
+                <Link href={`/related/${card.category}`}>
                   <div className="relative w-full h-[250px] cursor-pointer">
                     <Image
                       src={card.image}

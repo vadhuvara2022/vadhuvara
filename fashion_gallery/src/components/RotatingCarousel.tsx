@@ -64,7 +64,7 @@ const RotatingCarousel: React.FC<RotatingCarouselProps> = ({ images }) => {
           <h1 className="text-2xl font-bold text-brown-900">NEW COLLECTION</h1>
           <p className="text-gray-700 mt-2">Discover our latest collection of fashion items. Each piece is crafted with care and attention to detail, ensuring you look your best.</p>
           <a href="/www.fashiongallery.com" className="text-brown-900 text-lg block mt-4">www.fashiongallery.com</a>
-          <Link className="mt-4 inline-block px-6 py-3 bg-blue-500 text-white text-sm font-semibold rounded hover:bg-blue-600 focus:outline-none" href="/shop">
+          <Link className="mt-4 inline-block px-6 py-3 bg-blue-500 text-white text-sm font-semibold rounded hover:bg-blue-600 focus:outline-none" href="/">
             Vist Us
           </Link>
         </div>

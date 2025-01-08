@@ -27,3 +27,18 @@ export const POST = async (request: NextRequest) => {
     return NextResponse.json({ message: "Unknown error" }, { status: 500 });
   }
 };
+
+export const GET = async (request: NextRequest) => {
+  await connect();
+
+  try {
+    const messages = await ContactRequest.find({});
+    return NextResponse.json(messages, { status: 200 });
+  } catch (error: unknown) {
+    console.error("Error in fetching messages:", error);
+    if (error instanceof Error) {
+      return NextResponse.json({ message: "Error in fetching messages: " + error.message }, { status: 500 });
+    }
+    return NextResponse.json({ message: "Unknown error" }, { status: 500 });
+  }
+};

@@ -24,6 +24,7 @@ export default function SearchParamsComponent() {
 
       if (response.ok) {
         alert('Request sent successfully!');
+        window.location.reload();
       } else {
         alert('Failed to send request.');
       }
@@ -32,7 +33,6 @@ export default function SearchParamsComponent() {
       alert('An error occurred while sending the request.');
     }
   };
-
   return (
     <div>
       <section className="bg-blue-50 dark:bg-slate-800" id="contact">
@@ -46,7 +46,7 @@ export default function SearchParamsComponent() {
                 Get in Touch
               </h2>
               <p className="mx-auto mt-4 max-w-3xl text-xl text-gray-600 dark:text-slate-400">
-                In hac habitasse platea dictumst
+                About Vadhuvara Wedding Mall
               </p>
             </div>
           </div>
@@ -54,8 +54,7 @@ export default function SearchParamsComponent() {
             <div className="grid md:grid-cols-2">
               <div className="h-full pr-6">
                 <p className="mt-3 mb-12 text-lg text-gray-600 dark:text-slate-400">
-                  Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis nec ipsum orci. Ut scelerisque sagittis ante, ac tincidunt sem venenatis ut.
-                </p>
+                 Vadhuvara Wedding Mall is a 2 years 5 months old Proprietorship Firm incorporated office located at Door No 1-9-31/2/B, Beside Sathwik Hospital,Near Old Busstop,Mg Road,Medak,Telangana                </p>
                 <ul className="mb-6 md:mb-0">
                   <li className="flex">
                     <div className="flex h-10 w-10 items-center justify-center rounded bg-blue-900 text-gray-50">
@@ -66,8 +65,8 @@ export default function SearchParamsComponent() {
                     </div>
                     <div className="ml-4 mb-4">
                       <h3 className="mb-2 text-lg font-medium leading-6 text-gray-900 dark:text-white">Our Address</h3>
-                      <p className="text-gray-600 dark:text-slate-400">1230 Maecenas Street Donec Road</p>
-                      <p className="text-gray-600 dark:text-slate-400">New York, EEUU</p>
+                      <p className="text-gray-600 dark:text-slate-400">1-9-31/2/b, near SATHWIK HOSPITAL, Pillidi, Arabgalli, 502110</p>
+                      <p className="text-gray-600 dark:text-slate-400"> Medak, Telangana</p>
                     </div>
                   </li>
                   <li className="flex">
@@ -81,7 +80,8 @@ export default function SearchParamsComponent() {
                     <div className="ml-4 mb-4">
                       <h3 className="mb-2 text-lg font-medium leading-6 text-gray-900 dark:text-white">Contact</h3>
                       <p className="text-gray-600 dark:text-slate-400">Mobile: +1 (123) 456-7890</p>
-                      <p className="text-gray-600 dark:text-slate-400">Mail: tailnext@gmail.com</p>
+                      <p className="text-gray-600 dark:text-slate-400">Mail: vadhuvara2208@gmail.com</p>
+                      
                     </div>
                   </li>
                   <li className="flex">
@@ -93,8 +93,7 @@ export default function SearchParamsComponent() {
                     </div>
                     <div className="ml-4 mb-4">
                       <h3 className="mb-2 text-lg font-medium leading-6 text-gray-900 dark:text-white">Working hours</h3>
-                      <p className="text-gray-600 dark:text-slate-400">Monday - Friday: 08:00 - 17:00</p>
-                      <p className="text-gray-600 dark:text-slate-400">Saturday &amp; Sunday: 08:00 - 12:00</p>
+                      <p className="text-gray-600 dark:text-slate-400">Sunday - Saturday: 09:00AM - 10:00PM</p>
                     </div>
                   </li>
                 </ul>

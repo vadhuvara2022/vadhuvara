@@ -42,7 +42,7 @@ const CategoryPage: React.FC = () => {
   }, [category]);
 
   const handleImageClick = (item: Item) => {
-    router.push(`/related/${category}/${item.name}/${item._id}`);
+    router.push(`/related/${category}/${item.name}`);
   };
 
   return (

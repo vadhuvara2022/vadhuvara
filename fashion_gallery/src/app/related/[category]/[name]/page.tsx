@@ -13,7 +13,7 @@ interface Item {
   description: string;
   sizes: string[];
   image: string;
-  totalImages: { src: string; alt: string }[];
+  totalImages: { src: string }[];
 }
 
 const RelatedItems: React.FC = () => {
@@ -24,7 +24,7 @@ const RelatedItems: React.FC = () => {
   const [items, setItems] = useState<Item[]>([]);
 
   useEffect(() => {
-    if (category && name) {
+    if ((category && name)|| category || name){
       const fetchItems = async () => {
         try {
           const response = await fetch(`/api/main?category=${category}&name=${name}`);

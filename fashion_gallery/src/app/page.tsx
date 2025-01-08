@@ -5,6 +5,7 @@ import SliderCards from "@/components/sliderCards";
 import WomenSliderCards from "@/components/WomenSlider";
 import KidsSlider from "@/components/kidsSlider";
 import Footer from "@/components/Footer";
+import OtherSlider from "@/components/otherSlider";
 export default function Page() {
   const images = [
     { id: 1, src: '/c1.avif', alt: 'Image 1' },
@@ -47,6 +48,16 @@ export default function Page() {
             </h2>
           </div>
           <KidsSlider/>
+        </section>
+        <section id='others' className="mb-16">
+        <div className="items-center max-w-3xl mx-auto text-center mt-16 mb-16">
+            <h2 className="flex flex-row flex-nowrap items-center justify-center mt-24">
+              <span className="flex-none block mx-4 px-4 py-2.5 text-xl rounded leading-none font-medium bg-black text-white">
+                Others
+              </span>
+            </h2>
+          </div>
+        <OtherSlider/>
         </section>
       </div>
       <Footer />

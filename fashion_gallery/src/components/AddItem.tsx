@@ -64,7 +64,19 @@ export default function AddItem() {
       });
 
       if (response.ok) {
-        setMessage("Item added successfully!");
+        
+        alert("Item added successfully!");
+        setFormData({
+          name: '',
+          gender: '',
+          category: '',
+          cost: 0,
+          description: '',
+          sizes: '',
+          image: '',
+          totalImages: [{ src: "" }],
+        });
+        
       } else {
         const errorData = await response.json();
         setMessage(`Failed to add item: ${errorData.error}`);

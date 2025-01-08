@@ -1,7 +1,5 @@
 
 import { Schema,model,models} from "mongoose";
-
-
 const MyModelSchema: Schema = new Schema(
   {
     name: {

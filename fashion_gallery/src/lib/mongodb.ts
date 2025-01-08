@@ -16,9 +16,10 @@ const connect = async () => {
   }
 
   try {
-    mongoose.connect(MONGODB_URI!, {
+     mongoose.connect(MONGODB_URI!, {
       dbName: "mydb",
       bufferCommands: true,
+      
     });
     console.log("Connected");
   } catch (err) {

@@ -17,7 +17,6 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const router = useRouter();
 
   useEffect(() => {
-    // Check if the user is authenticated (e.g., check a token in localStorage)
     const token = localStorage.getItem('token');
     if (token) {
       setIsAuthenticated(true);
