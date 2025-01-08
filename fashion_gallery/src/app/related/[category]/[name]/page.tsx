@@ -3,6 +3,7 @@ import { useParams, useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import Banner from '@/components/Banner';
 
 interface Item {
   _id: string;
@@ -48,6 +49,8 @@ const RelatedItems: React.FC = () => {
   };
 
   return (
+    <div>
+      <Banner/>
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-2xl font-bold mb-6">Related Items</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
@@ -84,6 +87,7 @@ const RelatedItems: React.FC = () => {
             </div>
           </div>
         ))}
+      </div>
       </div>
     </div>
   );

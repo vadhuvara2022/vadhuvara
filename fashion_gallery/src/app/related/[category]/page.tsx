@@ -2,6 +2,8 @@
 import { useParams, useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
+import Banner from '@/components/Banner';
+
 
 interface Item {
   _id: string;
@@ -46,8 +48,13 @@ const CategoryPage: React.FC = () => {
   };
 
   return (
+    <div>
+      <Banner/>
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-2xl font-bold mb-6">Category: {category}</h1>
+      
+    <h1 className="text-2xl font-bold mb-6 text-center">
+        Search for more <span className="capitalize">{category}</span>
+      </h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {items.map((item) => (
           <div key={item._id} className="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-md">
@@ -81,6 +88,8 @@ const CategoryPage: React.FC = () => {
           </div>
         ))}
       </div>
+    </div>
+    
     </div>
   );
 };

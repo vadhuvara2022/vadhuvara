@@ -49,6 +49,7 @@ const ItemDetailPage: React.FC = () => {
   }
 
   return (
+
     <div className="container mx-auto px-4 py-8">
       <div >
         <div className="mb-6  ">
@@ -63,6 +64,7 @@ const ItemDetailPage: React.FC = () => {
         
       </div>
     </div>
+   
   );
 };
 
