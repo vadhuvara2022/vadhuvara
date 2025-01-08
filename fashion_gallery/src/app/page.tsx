@@ -12,6 +12,7 @@ export default function Page() {
     { id: 2, src: '/c2.avif', alt: 'Image 2' },
     { id: 3, src: '/c3.avif', alt: 'Image 3' },
     {id:4,src:'/home.webp',alt:'Image 4'},
+    {id:5,src:'/c3.jpg', alt:'Image 5'},
   ];
 
   return (
