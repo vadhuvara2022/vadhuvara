@@ -54,7 +54,7 @@ export default function Admin() {
         });
 
         if (uploadResponse.ok) {
-          const imageUrl = `https://vadhuvara.eu-north-1.amazonaws.com/${file.name}`;
+          const imageUrl = `https://vadhuvara.s3.eu-north-1.amazonaws.com/${file.name}`;
           setMessage("Upload successful!");
           setImageUrl(imageUrl);
         } else {
