@@ -79,7 +79,7 @@ export default function SearchParamsComponent() {
                     </div>
                     <div className="ml-4 mb-4">
                       <h3 className="mb-2 text-lg font-medium leading-6 text-gray-900 dark:text-white">Contact</h3>
-                      <p className="text-gray-600 dark:text-slate-400">Mobile: +1 (123) 456-7890</p>
+                      <p className="text-gray-600 dark:text-slate-400">Mobile:+91 9666205850 </p>
                       <p className="text-gray-600 dark:text-slate-400">Mail: vadhuvara2208@gmail.com</p>
                       
                     </div>

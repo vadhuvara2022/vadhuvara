@@ -1,4 +1,5 @@
-"use client"
+
+'use client';
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/context/AuthContext';
@@ -10,24 +11,26 @@ const SignInPage: React.FC = () => {
   const [error, setError] = useState('');
   const router = useRouter();
 
-  
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
 
-    const response = await fetch('/api/auth', {
-      method: 'POST',
+    const response = await fetch(`/api/auth?email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`, {
+      method: 'GET',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ email, password }),
     });
 
-    const data = await response.json();
+    let data;
+    try {
+      data = await response.json();
+    } catch (error) {
+      data = { message: 'Unexpected error occurred',error };
+    }
 
     if (response.ok) {
-      login()
+      login();
       router.push('/admin');
     } else {
       setError(data.message || 'Something went wrong');
@@ -44,47 +47,36 @@ const SignInPage: React.FC = () => {
         <div className="mt-5">
           <form onSubmit={handleSubmit}>
             <div className="relative mt-6">
+              <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
               <input
                 type="email"
-                name="email"
                 id="email"
-                placeholder="Email Address"
-                className="peer mt-1 w-full border-b-2 border-gray-300 px-0 py-1 placeholder:text-transparent focus:border-gray-500 focus:outline-none"
-                autoComplete="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                required
+                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               />
-              <label
-                htmlFor="email"
-                className="pointer-events-none absolute top-0 left-0 origin-left -translate-y-1/2 transform text-sm text-gray-800 opacity-75 transition-all duration-100 ease-in-out peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:top-0 peer-focus:pl-0 peer-focus:text-sm peer-focus:text-gray-800"
-              >
-                Email Address
-              </label>
             </div>
             <div className="relative mt-6">
+              <label htmlFor="password" className="block text-sm font-medium text-gray-700">Password</label>
               <input
                 type="password"
-                name="password"
                 id="password"
-                placeholder="Password"
-                className="peer mt-1 w-full border-b-2 border-gray-300 px-0 py-1 placeholder:text-transparent focus:border-gray-500 focus:outline-none"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                required
+                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               />
-              <label
-                htmlFor="password"
-                className="pointer-events-none absolute top-0 left-0 origin-left -translate-y-1/2 transform text-sm text-gray-800 opacity-75 transition-all duration-100 ease-in-out peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:top-0 peer-focus:pl-0 peer-focus:text-sm peer-focus:text-gray-800"
-              >
-                Password
-              </label>
             </div>
-            {error && <p className="mt-4 text-red-500 text-sm">{error}</p>}
-            <div className="my-6">
-              <button type="submit" className="w-full rounded-md bg-black px-3 py-4 text-white focus:bg-gray-600 focus:outline-none">
-                Sign in
+            {error && <p className="mt-2 text-sm text-red-600">{error}</p>}
+            <div className="mt-6">
+              <button
+                type="submit"
+                className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              >
+                Sign In
               </button>
             </div>
-            
           </form>
         </div>
       </div>
