@@ -54,7 +54,7 @@ export default function Admin() {
         });
 
         if (uploadResponse.ok) {
-          const imageUrl = `https://fashiongallery1.s3.us-east-1.amazonaws.com/${file.name}`;
+          const imageUrl = `https://vadhuvara.eu-north-1.amazonaws.com/${file.name}`;
           setMessage("Upload successful!");
           setImageUrl(imageUrl);
         } else {
